@@ -1,4 +1,3 @@
-// import OpenAI from "openai";
 const OpenAI = require("openai");
 
 const express = require("express"); // 서버 쉽게 만드는 거 도와주는 툴
