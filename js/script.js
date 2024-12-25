@@ -42,8 +42,8 @@ function selectChef(chefType) {
 }
 
 function resetChat() {
-    const chatContainer = document.getElementById("chat-container");
-    chatContainer.innerHTML = ""; // 채팅창 비우기
+    const chatMessages = document.getElementById("chat-messages");
+    chatMessages.innerHTML = ""; // 채팅창 비우기
 }
 
 // 채팅 헤더 업데이트
@@ -65,7 +65,7 @@ function sendMessage() {
 }
 
 function displayMessage(sender, text) {
-    const chatContainer = document.getElementById("chat-container");
+    const chatMessages = document.getElementById("chat-messages");
     const messageElement = document.createElement("div");
     messageElement.classList.add(sender);
 
@@ -86,8 +86,8 @@ function displayMessage(sender, text) {
         messageElement.appendChild(chatBubble);
     }
 
-    chatContainer.appendChild(messageElement);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+    chatMessages.appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 async function fetchResponse(message) {
