@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Please take care of my Refrigerator!</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="chef-selection">
+                <h2>당신의 요리사를 선택하세요</h2>
+                <div class="chef-list">
+                    <div
+                        class="chef-option"
+                        onclick="selectChef('KoreanStyle')"
+                    >
+                        <img src="./assets/imoticon.png" alt="Chef 1" />
+                        <h3>Mr. Leo</h3>
+                    </div>
+                    <div
+                        class="chef-option"
+                        onclick="selectChef('WesternStyle')"
+                    >
+                        <img src="./assets/Ms.marlang.png" alt="WesternStyle" />
+                        <h3>Ms. Marlang</h3>
+                    </div>
+                    <div
+                        class="chef-option"
+                        onclick="selectChef('ChineseStyle')"
+                    >
+                        <img src="./assets/Leo.png" alt="Chef 3" />
+                        <h3>Yeongjun</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="chat-header-info">
+                        <img
+                            id="selected-chef-avatar"
+                            src="./assets/bot-avatar.png"
+                            alt="Selected Chef"
+                        />
+                        <div class="chat-header-text">
+                            <h3 id="selected-chef-name">
+                                요리사를 선택해주세요
+                            </h3>
+                            <span class="chat-header-status">온라인</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="chat-messages" id="chat-container">
+                    <div class="message bot">
+                        <img
+                            src="./assets/bot-avatar.png"
+                            alt="Bot"
+                            class="profile-pic"
+                        />
+                        <div class="chat-bubble">
+                            안녕하세요! 요리사를 선택하고 대화를 시작해보세요.
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input
+                        type="text"
+                        id="chat-input"
+                        placeholder="메시지를 입력하세요..."
+                        onkeydown="if(event.key==='Enter') sendMessage()"
+                    />
+                    <button id="send-button" onclick="sendMessage()">
+                        전송
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,253 @@
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --text-color: #2c3e50;
+    --border-radius: 12px;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chef-selection {
+    margin-bottom: 20px;
+}
+
+.chef-selection h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.chef-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+.chef-option {
+    background: var(--card-background);
+    text-align: center;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 200px;
+}
+
+.chef-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.chef-option img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 4px solid var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.chef-option:hover img {
+    transform: scale(1.05);
+}
+
+.chef-option h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.chef-option.selected {
+    background: rgba(52, 152, 219, 0.1);
+    border: 2px solid var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.chef-option.selected img {
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.chef-option.selected h3 {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* 가운데 정렬 */
+.chat-container {
+    background: #f5f7fb;
+    border-radius: var(--border-radius);
+    width: 50%;
+    height: calc(90vh - 300px);
+    min-height: 300px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 auto; /* Center align horizontally */
+}
+
+#chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: transparent;
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.message.user {
+    flex-direction: row-reverse;
+}
+
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.chat-bubble {
+    max-width: 70%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.user .chat-bubble {
+    background: var(--accent-color);
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.bot .chat-bubble {
+    background: white;
+    color: var(--text-color);
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 15px 20px;
+    background: white;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.chat-input-area input {
+    flex-grow: 1;
+    padding: 12px 20px;
+    background: #f5f7fb;
+    border: none;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    margin-right: 15px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.chat-input-area input:focus {
+    outline: none;
+    background: white;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.chat-input-area button {
+    padding: 12px 25px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.chat-input-area button:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+    padding: 15px 20px;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.chat-header-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-color);
+}
+
+.chat-header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header-text h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.chat-header-status {
+    font-size: 0.8rem;
+    color: #28a745;
+}
+
+@media (max-width: 768px) {
+    .chef-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chef-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
