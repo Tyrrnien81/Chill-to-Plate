@@ -115,7 +115,6 @@ body {
     flex-grow: 1;
     padding: 20px;
     overflow-y: auto;
-    background: transparent;
     background: #d3e9f7;
 }
 
@@ -144,6 +143,7 @@ body {
     border-radius: 18px;
     position: relative;
     word-wrap: break-word;
+    border-top-left-radius: 3px;
     background: white; /* 기본 배경색 설정 */
 }
 
@@ -160,14 +160,14 @@ body {
 .user .chat-bubble {
     background: var(--accent-color);
     color: white;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 3px;
 }
 
 /* 봇 메시지의 스타일 */
 .bot .chat-bubble {
     background: white;
     color: var(--text-color);
-    border-top-left-radius: 5px;
+    border-top-left-radius: 3px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
