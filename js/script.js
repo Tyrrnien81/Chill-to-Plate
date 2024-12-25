@@ -76,7 +76,7 @@ function displayMessage(sender, text) {
 
     const chatBubble = document.createElement("div");
     chatBubble.classList.add("chat-bubble");
-    chatBubble.textContent = text;
+    chatBubble.innerHTML = marked.parse(text); // 마크다운을 HTML로 변환
 
     if (sender === "user") {
         messageElement.appendChild(chatBubble);

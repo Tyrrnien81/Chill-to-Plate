@@ -116,7 +116,7 @@ body {
     padding: 20px;
     overflow-y: auto;
     background: transparent;
-    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+    background: #d3e9f7;
 }
 
 .message {
@@ -138,24 +138,36 @@ body {
     object-fit: cover;
 }
 
-.chat-bubble {
+.initial-bubble {
     max-width: 70%;
     padding: 12px 18px;
     border-radius: 18px;
     position: relative;
     word-wrap: break-word;
+    background: white; /* 기본 배경색 설정 */
 }
 
+.chat-bubble {
+    max-width: 70%;
+    padding: 1px 18px; /* 모든 채팅 버블에 대해 동일한 패딩 적용 */
+    border-radius: 18px;
+    position: relative;
+    word-wrap: break-word;
+    background: white; /* 기본 배경색 설정 */
+}
+
+/* 사용자 메시지일 때만 배경색 변경 */
 .user .chat-bubble {
     background: var(--accent-color);
     color: white;
     border-bottom-right-radius: 5px;
 }
 
+/* 봇 메시지의 스타일 */
 .bot .chat-bubble {
     background: white;
     color: var(--text-color);
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
