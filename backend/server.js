@@ -16,6 +16,7 @@ app.post("/chat", async (req, res) => {
     try {
         // 프론트에서 보낸 메시지를 받아온다.
         const { message, chefType } = req.body;
+        console.log("Chef type:", chefType);
         // gpt에게 전달해준다.
         const completion = await openai.chat.completions.create({
             model: "gpt-4o-mini",
