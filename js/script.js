@@ -65,6 +65,10 @@ function updateChatHeader(chef) {
 
 // 메시지 전송
 function sendMessage() {
+    if (!selectedChefType) {
+        alert("Please select a chef first.");
+        return;
+    }
     const input = document.getElementById("chat-input");
     const message = input.value.trim();
 
