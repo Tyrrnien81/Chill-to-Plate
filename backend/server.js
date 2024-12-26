@@ -24,17 +24,17 @@ const openai = new OpenAI({ OPENAI_API_KEY });
 app.post("/chat", async (req, res) => {
     try {
         // 프론트에서 보낸 메시지를 받아온다.
-        const { message, chefType } = req.body;
+        const { message, chefType, conversation } = req.body;
+        console.log("Message:", message);
         console.log("Chef type:", chefType);
+        console.log("Conversation:", conversation);
         // gpt에게 전달해준다.
+        // Merge the conversation array from the client with the system prompt to preserve context
         const completion = await openai.chat.completions.create({
             model: "gpt-4o-mini",
             messages: [
                 { role: "system", content: CHEF_TYPE[chefType] }, // gpt
-                {
-                    role: "user",
-                    content: message, // user
-                },
+                ...conversation,
             ],
         });
         console.log(completion.choices[0].message); // gpt가 보낸 답변

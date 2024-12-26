@@ -17,6 +17,8 @@ const CHEF_TYPES = {
 };
 
 let selectedChefType = null;
+// Create an array to store all messages (user + assistant) to maintain context
+let conversation = [];
 
 // Chef 선택 후 채팅 초기화
 function selectChef(chefType) {
@@ -39,6 +41,15 @@ function selectChef(chefType) {
 
     // 채팅 리셋
     resetChat();
+    conversation = []; // 이전 대화 초기화
+    // System-level message is appended to give the AI information about the chef
+    conversation.push({
+        role: "system",
+        content:
+            CHEF_TYPES[chefType].name +
+            " is a chef: specializes in " +
+            CHEF_TYPES[chefType].type,
+    });
 }
 
 function resetChat() {
@@ -59,6 +70,8 @@ function sendMessage() {
 
     if (message) {
         displayMessage("user", message);
+        // Add the user's latest message here so the model can remember it later
+        conversation.push({ role: "user", content: message }); // 사용자 메시지 저장
         input.value = ""; // 메시지 전송 후 input 비우기
         fetchResponse(message);
     }
@@ -97,10 +110,17 @@ async function fetchResponse(message) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ message, chefType: selectedChefType.type }),
+            // The entire conversation array is sent so the model maintains previous context
+            body: JSON.stringify({
+                message,
+                chefType: selectedChefType.type,
+                conversation,
+            }),
         });
         const data = await response.json();
         displayMessage("bot", data.reply.content);
+        // After receiving the response, add the assistant's updated reply to the conversation
+        conversation.push({ role: "assistant", content: data.reply.content }); // 봇 응답 저장
     } catch (error) {
         displayMessage("bot", "Sorry, something went wrong. Please try again.");
     }
