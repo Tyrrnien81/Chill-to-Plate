@@ -1,3 +1,12 @@
+const CHEF_TYPE = {
+    KoreanStyle:
+        "please make me a Korean dish. you are a master of Korean cuisine.",
+    WesternStyle:
+        "please make me a Western dish. you are a master of Western cuisine.",
+    ChineseStyle:
+        "please make me a Chinese dish. you are a master of Chinese cuisine.",
+};
+
 const OpenAI = require("openai");
 
 const express = require("express"); // 서버 쉽게 만드는 거 도와주는 툴
@@ -21,7 +30,7 @@ app.post("/chat", async (req, res) => {
         const completion = await openai.chat.completions.create({
             model: "gpt-4o-mini",
             messages: [
-                { role: "system", content: chefType }, // gpt
+                { role: "system", content: CHEF_TYPE[chefType] }, // gpt
                 {
                     role: "user",
                     content: message, // user
