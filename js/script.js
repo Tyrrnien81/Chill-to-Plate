@@ -103,20 +103,33 @@ function displayMessage(sender, text) {
     const messageElement = document.createElement("div");
     messageElement.classList.add(sender);
 
+    // Check if the last message is also from the bot,
+    // and if so, don't show the profile pic
+    const lastMessage = chatMessages.lastElementChild;
+    const showProfilePic = !(
+        sender === "bot" &&
+        lastMessage &&
+        lastMessage.classList.contains("bot")
+    );
+
+    // Prepare profile pic
     const profilePic = document.createElement("img");
     profilePic.src =
         sender === "user" ? "./assets/user.png" : selectedChefType.img;
     profilePic.classList.add("profile-pic");
 
+    // Create chat bubble
     const chatBubble = document.createElement("div");
     chatBubble.classList.add("chat-bubble");
-    chatBubble.innerHTML = marked.parse(text); // Convert Markdown to HTML
+    chatBubble.innerHTML = marked.parse(text); // Convert markdown to HTML
 
     if (sender === "user") {
         messageElement.appendChild(chatBubble);
         // messageElement.appendChild(profilePic);
     } else {
-        messageElement.appendChild(profilePic);
+        if (showProfilePic) {
+            messageElement.appendChild(profilePic);
+        }
         messageElement.appendChild(chatBubble);
     }
 
