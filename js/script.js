@@ -50,7 +50,7 @@ function selectChef(chefType) {
             " is a chef: specializes in " +
             CHEF_TYPES[chefType].type,
     });
-    // Add a bot message immediately asking for the user's name
+    // Add a bot message immediately introduce itself and asking for the user's name
     if (chefType === "KoreanStyle") {
         displayMessage(
             "bot",
@@ -59,7 +59,29 @@ function selectChef(chefType) {
         displayMessage("bot", "May I know your name?");
         conversation.push({
             role: "assistant",
-            content: "Hello! May I know your name?",
+            content: "May I know your name?",
+        });
+    }
+    if (chefType === "AmericanStyle") {
+        displayMessage(
+            "bot",
+            "Hey there! I am Chef Smith, known for my unrivaled mastery of American cuisine. Let’s begin this journey!"
+        );
+        displayMessage("bot", "What’s your name, partner?");
+        conversation.push({
+            role: "assistant",
+            content: "What’s your name, partner?",
+        });
+    }
+    if (chefType === "ChineseStyle") {
+        displayMessage(
+            "bot",
+            "Hello! I am Chef Li, renowned for my exceptional mastery of Chinese cuisine. Let’s begin this culinary journey!"
+        );
+        displayMessage("bot", "May I kindly ask for your name?");
+        conversation.push({
+            role: "assistant",
+            content: "May I kindly ask for your name?",
         });
     }
 }
