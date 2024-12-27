@@ -50,6 +50,12 @@ function selectChef(chefType) {
             " is a chef: specializes in " +
             CHEF_TYPES[chefType].type,
     });
+    // Add a bot message immediately asking for the user's name
+    displayMessage("bot", "Hello! May I know your name?");
+    conversation.push({
+        role: "assistant",
+        content: "Hello! May I know your name?",
+    });
 }
 
 function resetChat() {
