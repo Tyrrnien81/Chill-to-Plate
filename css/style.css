@@ -124,7 +124,7 @@ body {
     gap: 10px;
     margin-bottom: 20px;
     /* padding: 0 10px; */
-    animation: fadeInUp 0.5s ease;
+    animation: fadeInUp 1s ease;
 }
 
 .message.user {
@@ -158,7 +158,7 @@ body {
     position: relative;
     word-wrap: break-word;
     background: white; /* 기본 배경색 설정 */
-    animation: fadeInUp 0.5s ease; /* Apply smooth animation to each message */
+    animation: fadeInUp 1s ease; /* Apply smooth animation to each message */
 }
 
 /* 사용자 메시지일 때만 배경색 변경 */

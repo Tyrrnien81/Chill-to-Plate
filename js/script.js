@@ -1,17 +1,17 @@
 const CHEF_TYPES = {
     KoreanStyle: {
         type: "KoreanStyle",
-        name: "Mr. Leo",
-        img: "./assets/imoticon.png",
+        name: "Chef Kim",
+        img: "./assets/Ms.marlang.png",
     },
     AmericanStyle: {
         type: "AmericanStyle",
-        name: "Ms. Marlang",
-        img: "./assets/Ms.marlang.png",
+        name: "Chef Smith",
+        img: "./assets/imoticon.png",
     },
     ChineseStyle: {
         type: "ChineseStyle",
-        name: "Yeongjun",
+        name: "Chef Li",
         img: "./assets/Leo.png",
     },
 };
@@ -51,11 +51,17 @@ function selectChef(chefType) {
             CHEF_TYPES[chefType].type,
     });
     // Add a bot message immediately asking for the user's name
-    displayMessage("bot", "Hello! May I know your name?");
-    conversation.push({
-        role: "assistant",
-        content: "Hello! May I know your name?",
-    });
+    if (chefType === "KoreanStyle") {
+        displayMessage(
+            "bot",
+            "Hello! I am Chef Kim, renowned for my mastery of Korean cuisine. Let’s begin our culinary journey!"
+        );
+        displayMessage("bot", "May I know your name?");
+        conversation.push({
+            role: "assistant",
+            content: "Hello! May I know your name?",
+        });
+    }
 }
 
 function resetChat() {
