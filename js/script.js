@@ -1,18 +1,18 @@
 const CHEF_TYPES = {
     KoreanStyle: {
         type: "KoreanStyle",
-        name: "Chef Kim",
-        img: "./assets/Ms.marlang.png",
+        name: "Chef Shin",
+        img: "./assets/Chef-Shin.webp",
+    },
+    ChineseStyle: {
+        type: "ChineseStyle",
+        name: "Chef Jun",
+        img: "./assets/Chef-Jun.webp",
     },
     AmericanStyle: {
         type: "AmericanStyle",
         name: "Chef Smith",
-        img: "./assets/imoticon.png",
-    },
-    ChineseStyle: {
-        type: "ChineseStyle",
-        name: "Chef Li",
-        img: "./assets/Leo.png",
+        img: "./assets/Chef-Smith.webp",
     },
 };
 
@@ -55,10 +55,25 @@ function selectChef(chefType) {
         setTimeout(() => {
             displayMessage(
                 "bot",
-                "Hello! I am Chef Kim, renowned for my mastery of Korean cuisine. Let’s begin our culinary journey!"
+                "Hello! I am Chef Shin, renowned for my mastery of Korean cuisine. Let’s begin our culinary journey!"
             );
         }, 300);
 
+        setTimeout(() => {
+            displayMessage("bot", "May I kindly ask for your name?");
+            conversation.push({
+                role: "assistant",
+                content: "May I kindly ask for your name?",
+            });
+        }, 1000);
+    }
+    if (chefType === "ChineseStyle") {
+        setTimeout(() => {
+            displayMessage(
+                "bot",
+                "Hello! I am Chef Jun, renowned for my exceptional mastery of Chinese cuisine. Let’s begin this culinary journey!"
+            );
+        }, 300);
         setTimeout(() => {
             displayMessage("bot", "May I know your name?");
             conversation.push({
@@ -79,21 +94,6 @@ function selectChef(chefType) {
             conversation.push({
                 role: "assistant",
                 content: "What’s your name, partner?",
-            });
-        }, 1000);
-    }
-    if (chefType === "ChineseStyle") {
-        setTimeout(() => {
-            displayMessage(
-                "bot",
-                "Hello! I am Chef Li, renowned for my exceptional mastery of Chinese cuisine. Let’s begin this culinary journey!"
-            );
-        }, 300);
-        setTimeout(() => {
-            displayMessage("bot", "May I kindly ask for your name?");
-            conversation.push({
-                role: "assistant",
-                content: "May I kindly ask for your name?",
             });
         }, 1000);
     }
