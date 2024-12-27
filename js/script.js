@@ -67,6 +67,11 @@ function resetChat() {
 function updateChatHeader(chef) {
     document.getElementById("selected-chef-avatar").src = chef.img;
     document.getElementById("selected-chef-name").textContent = chef.name;
+
+    // Change status to Online once a chef is chosen
+    const statusElement = document.getElementById("chat-header-status");
+    statusElement.classList.add("online");
+    statusElement.textContent = "Online";
 }
 
 // Send message
@@ -103,7 +108,7 @@ function displayMessage(sender, text) {
 
     if (sender === "user") {
         messageElement.appendChild(chatBubble);
-        messageElement.appendChild(profilePic);
+        // messageElement.appendChild(profilePic);
     } else {
         messageElement.appendChild(profilePic);
         messageElement.appendChild(chatBubble);

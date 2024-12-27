@@ -123,7 +123,8 @@ body {
     align-items: flex-start;
     gap: 10px;
     margin-bottom: 20px;
-    padding: 0 10px;
+    /* padding: 0 10px; */
+    animation: fadeInUp 0.5s ease;
 }
 
 .message.user {
@@ -135,6 +136,8 @@ body {
     height: 35px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid var(--accent-color);
+    animation: fadeInUp 0.5s ease;
 }
 
 .initial-bubble {
@@ -151,9 +154,11 @@ body {
     max-width: 70%;
     padding: 1px 18px; /* 모든 채팅 버블에 대해 동일한 패딩 적용 */
     border-radius: 18px;
+    margin-bottom: 10px;
     position: relative;
     word-wrap: break-word;
     background: white; /* 기본 배경색 설정 */
+    animation: fadeInUp 0.5s ease; /* Apply smooth animation to each message */
 }
 
 /* 사용자 메시지일 때만 배경색 변경 */
@@ -247,9 +252,24 @@ body {
     color: var(--primary-color);
 }
 
-.chat-header-status {
+#chat-header-status {
     font-size: 0.8rem;
+    color: #b9272c;
+}
+
+#chat-header-status.online {
     color: #28a745;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 768px) {
