@@ -14,12 +14,13 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto; /* Changed from hidden to auto */
 }
 
 .container {
     max-width: 1000px;
-    height: 100vh;
+    min-height: 100vh; /* Changed from height: 100vh */
+    height: auto;
     margin: 0 auto;
     padding: 20px;
     display: flex;
@@ -151,6 +152,7 @@ body {
 }
 
 .chat-bubble {
+    display: table; /* Allow the bubble's width to adapt to its conent */
     max-width: 70%;
     padding: 1px 18px; /* 모든 채팅 버블에 대해 동일한 패딩 적용 */
     border-radius: 18px;
@@ -163,6 +165,8 @@ body {
 
 /* 사용자 메시지일 때만 배경색 변경 */
 .user .chat-bubble {
+    margin-left: auto;
+    text-align: right;
     background: var(--accent-color);
     color: white;
     border-top-right-radius: 3px;
@@ -269,17 +273,5 @@ body {
     100% {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .chef-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .chef-card {
-        width: 100%;
-        max-width: 300px;
     }
 }
