@@ -275,3 +275,51 @@ body {
         transform: translateY(0);
     }
 }
+
+@media (max-width: 1024px) {
+    .chef-selection h2 {
+        font-size: 1.75rem;
+    }
+    .chat-container {
+        width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .chat-container {
+        width: 90%;
+        height: 500px; /* Fixed height for mobile */
+        margin: 20px auto;
+    }
+    .chat-container {
+        width: 80%;
+        margin-top: 10px;
+    }
+    .chef-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .chef-option {
+        width: 50%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chef-selection h2 {
+        font-size: 1.4rem;
+    }
+    .chef-option img {
+        width: 90px;
+        height: 90px;
+    }
+    .chat-input-area input {
+        font-size: 0.85rem;
+    }
+    .chat-container {
+        height: 800px; /* Smaller height for very small screens */
+    }
+}
