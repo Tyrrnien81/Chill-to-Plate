@@ -4,8 +4,8 @@ const CHEF_TYPES = {
         name: "Mr. Leo",
         img: "./assets/imoticon.png",
     },
-    WesternStyle: {
-        type: "WesternStyle",
+    AmericanStyle: {
+        type: "AmericanStyle",
         name: "Ms. Marlang",
         img: "./assets/Ms.marlang.png",
     },
