@@ -20,28 +20,28 @@ let selectedChefType = null;
 // Create an array to store all messages (user + assistant) to maintain context
 let conversation = [];
 
-// Chef 선택 후 채팅 초기화
+// Initialize chat after selecting Chef
 function selectChef(chefType) {
-    // 이전 선택 초기화
+    // Reset previous selection
     document.querySelectorAll(".chef-option").forEach((option) => {
         option.classList.remove("selected");
     });
 
-    // 새로운 선택 하이라이트
+    // Highlight new selection
     const selectedElement = document.querySelector(
         `.chef-option[onclick*="${chefType}"]`
     );
     selectedElement.classList.add("selected");
 
-    // 선택된 chef 정보 저장
+    // Store selected chef information
     selectedChefType = CHEF_TYPES[chefType];
 
-    // 헤더 정보 업데이트
+    // Update header information
     updateChatHeader(selectedChefType);
 
-    // 채팅 리셋
+    // Reset chat
     resetChat();
-    conversation = []; // 이전 대화 초기화
+    conversation = []; // Reset previous conversation
     // System-level message is appended to give the AI information about the chef
     conversation.push({
         role: "system",
@@ -54,16 +54,16 @@ function selectChef(chefType) {
 
 function resetChat() {
     const chatMessages = document.getElementById("chat-messages");
-    chatMessages.innerHTML = ""; // 채팅창 비우기
+    chatMessages.innerHTML = ""; // Clear chat window
 }
 
-// 채팅 헤더 업데이트
+// Update chat header
 function updateChatHeader(chef) {
     document.getElementById("selected-chef-avatar").src = chef.img;
     document.getElementById("selected-chef-name").textContent = chef.name;
 }
 
-// 메시지 전송
+// Send message
 function sendMessage() {
     if (!selectedChefType) {
         alert("Please select a chef first.");
@@ -75,8 +75,8 @@ function sendMessage() {
     if (message) {
         displayMessage("user", message);
         // Add the user's latest message here so the model can remember it later
-        conversation.push({ role: "user", content: message }); // 사용자 메시지 저장
-        input.value = ""; // 메시지 전송 후 input 비우기
+        conversation.push({ role: "user", content: message }); // Store user message
+        input.value = ""; // Clear input after sending message
         fetchResponse(message);
     }
 }
@@ -124,7 +124,7 @@ async function fetchResponse(message) {
         const data = await response.json();
         displayMessage("bot", data.reply.content);
         // After receiving the response, add the assistant's updated reply to the conversation
-        conversation.push({ role: "assistant", content: data.reply.content }); // 봇 응답 저장
+        conversation.push({ role: "assistant", content: data.reply.content }); // Store bot response
     } catch (error) {
         displayMessage("bot", "Sorry, something went wrong. Please try again.");
     }

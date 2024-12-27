@@ -66,14 +66,14 @@
                     <input
                         type="text"
                         id="chat-input"
-                        placeholder="메시지를 입력하세요..."
+                        placeholder="Enter your message..."
                         onkeydown="if(event.isComposing || event.keyCode === 229) return; 
                         if(event.key==='Enter') sendMessage()"
                     />
                     <!--event.isComposing   Check to confirm that combining Korean characters
                         event.keyCode === 229  Check to confirm that entering an IME-->
                     <button id="send-button" onclick="sendMessage()">
-                        전송
+                        Send
                     </button>
                 </div>
             </div>
