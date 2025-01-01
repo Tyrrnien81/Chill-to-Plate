@@ -308,6 +308,12 @@ body {
     }
 }
 
+@media (max-height: 800px) {
+    .chat-container {
+        height: 700px; /* Fixed height*/
+    }
+}
+
 @media (max-width: 480px) {
     .chef-selection h2 {
         font-size: 1.4rem;
@@ -320,6 +326,6 @@ body {
         font-size: 0.85rem;
     }
     .chat-container {
-        height: 800px; /* Smaller height for very small screens */
+        height: 800px; /* Fixed height for mobile */
     }
 }
