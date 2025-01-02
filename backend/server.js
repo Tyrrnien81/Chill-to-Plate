@@ -99,6 +99,11 @@ app.use(express.json()); // Handle JSON data format
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const openai = new OpenAI({ OPENAI_API_KEY });
 
+// Test route
+app.get("/", (req, res) => {
+    res.send("Server is up and running!");
+});
+
 app.post("/chat", async (req, res) => {
     try {
         // Receive message from frontend
