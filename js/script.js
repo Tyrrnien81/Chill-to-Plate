@@ -174,7 +174,7 @@ function displayMessage(sender, text) {
 
 async function fetchResponse(message) {
     try {
-        const response = await fetch("http://localhost:5001/chat", {
+        const response = await fetch("http://localhost:3000/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

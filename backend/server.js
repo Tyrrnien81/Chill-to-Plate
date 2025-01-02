@@ -126,6 +126,6 @@ app.post("/chat", async (req, res) => {
 });
 
 // Port configuration
-app.listen(5001, () => {
+app.listen(3000, "0.0.0.0", () => {
     console.log("server is running on port 5001");
 });
