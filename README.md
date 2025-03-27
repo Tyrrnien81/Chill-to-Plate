@@ -13,12 +13,11 @@ Welcome to the Chill to Plate project! This repository contains a web applicatio
 
 ## 🏗️ Project Structure
 
--   **index.html**: Main page providing chef selection and chat interface.
--   **js/script.js**: Manages conversations and message sending based on the selected chef type.
--   **css/style.css**: UI styles including layout, chat bubbles, and responsive design.
--   **backend/server.js**: Node.js-based server handling OpenAI API calls and conversation data processing.
--   **backend/.env**: Environment variables for API keys and other configurations.
-<!-- -   ...existing content... -->
+-   **/frontend/public/index.html**: Main HTML entry for the React app
+-   **/frontend/src/App.js**: Main React component handling chat logic
+-   **/frontend/src/style.css**: UI styles for the frontend
+-   **/backend/server.js**: Node.js-based server handling OpenAI API calls
+-   **/backend/.env**: Environment variables for API keys and configurations
 
 ## 💡 How It Works
 
@@ -37,6 +36,9 @@ Follow these steps to set up and run the project locally:
     ```bash
     git clone https://github.com/Tyrrnien81/Chill-to-Plate.git
     cd Chill-to-Plate-main
+    cd frontend
+    npm install
+    cd backend
     npm install
     ```
 
@@ -48,18 +50,21 @@ Follow these steps to set up and run the project locally:
         OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
         ```
 
-3. **Run the Server**
+3. **Run the Frontend and Server**
 
-    ```bash
-    cd backend
-    node server.js
-    ```
-
-    - The server will run on port 5001.
+    - Frontend:
+        ```bash
+        cd frontend
+        npm start
+        ```
+    - Backend:
+        ```bash
+        cd ../backend
+        node server.js
+        ```
 
 4. **Access the Web App**
-    - Open the **index.html** file in your browser.
-    - Select the desired Chef and start the conversation.
+    - Open http://localhost:3000 in your browser
 
 ## 🍽️ Usage
 
@@ -70,7 +75,7 @@ Follow these steps to set up and run the project locally:
 
 ## 🔧 Technology Stack
 
--   **Frontend**: HTML, CSS, JavaScript
+-   **Frontend**: React (Create React App)
 -   **Backend**: Node.js, Express.js, OpenAI SDK
 -   **AI Model**: GPT-4o-mini (Generative Pre-trained Transformer)
 
