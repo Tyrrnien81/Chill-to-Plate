@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Chill-to-Plate/static/css/main.2cf023b5.css",
-    "main.js": "/Chill-to-Plate/static/js/main.efdf4dc8.js",
+    "main.js": "/Chill-to-Plate/static/js/main.c7314d16.js",
     "static/js/453.8ab44547.chunk.js": "/Chill-to-Plate/static/js/453.8ab44547.chunk.js",
     "index.html": "/Chill-to-Plate/index.html",
     "main.2cf023b5.css.map": "/Chill-to-Plate/static/css/main.2cf023b5.css.map",
-    "main.efdf4dc8.js.map": "/Chill-to-Plate/static/js/main.efdf4dc8.js.map",
+    "main.c7314d16.js.map": "/Chill-to-Plate/static/js/main.c7314d16.js.map",
     "453.8ab44547.chunk.js.map": "/Chill-to-Plate/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2cf023b5.css",
-    "static/js/main.efdf4dc8.js"
+    "static/js/main.c7314d16.js"
   ]
 }
