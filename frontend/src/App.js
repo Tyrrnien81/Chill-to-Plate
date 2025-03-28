@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Helmet from "react-helmet";
 import "./style.css";
 import { marked } from "marked";
 
@@ -111,100 +112,105 @@ function App() {
     };
 
     return (
-        <div className="container">
-            <div className="chef-selection">
-                <h2>Chill to Plate</h2>
-                <div className="chef-list">
-                    {Object.keys(CHEF_TYPES).map((key) => (
-                        <div
-                            key={key}
-                            className={`chef-option ${
-                                selectedChef &&
-                                selectedChef.type === CHEF_TYPES[key].type
-                                    ? "selected"
-                                    : ""
-                            }`}
-                            onClick={() => handleSelectChef(key)}
-                        >
-                            <img
-                                src={CHEF_TYPES[key].img} // now uses updated path from CHEF_TYPES
-                                alt={CHEF_TYPES[key].name}
-                            />
-                            <h3>{CHEF_TYPES[key].name}</h3>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <div className="chat-container">
-                <div className="chat-header">
-                    <div className="chat-header-info">
-                        <img
-                            id="selected-chef-avatar"
-                            src={
-                                selectedChef
-                                    ? selectedChef.img
-                                    : process.env.PUBLIC_URL +
-                                      "/assets/bot-avatar.png" // updated path
-                            }
-                            alt="Selected Chef"
-                        />
-                        <div className="chat-header-text">
-                            <h3 id="selected-chef-name">
-                                {selectedChef
-                                    ? selectedChef.name
-                                    : "Choose a chef..."}
-                            </h3>
-                            <span
-                                id="chat-header-status"
-                                className={selectedChef ? "online" : ""}
+        <>
+            <Helmet>
+                <title>Chill to Plate</title>
+            </Helmet>
+            <div className="container">
+                <div className="chef-selection">
+                    <h2>Chill to Plate</h2>
+                    <div className="chef-list">
+                        {Object.keys(CHEF_TYPES).map((key) => (
+                            <div
+                                key={key}
+                                className={`chef-option ${
+                                    selectedChef &&
+                                    selectedChef.type === CHEF_TYPES[key].type
+                                        ? "selected"
+                                        : ""
+                                }`}
+                                onClick={() => handleSelectChef(key)}
                             >
-                                {selectedChef ? "Online" : "Offline"}
-                            </span>
-                        </div>
+                                <img
+                                    src={CHEF_TYPES[key].img} // now uses updated path from CHEF_TYPES
+                                    alt={CHEF_TYPES[key].name}
+                                />
+                                <h3>{CHEF_TYPES[key].name}</h3>
+                            </div>
+                        ))}
                     </div>
                 </div>
-                <div id="chat-messages">
-                    {conversation.map((msg, index) => (
-                        <div key={index} className={`message ${msg.role}`}>
-                            {msg.role === "assistant" && (
-                                // 봇 메시지일 경우 프로필 이미지 표시
-                                <img
-                                    src={
-                                        selectedChef
-                                            ? selectedChef.img
-                                            : process.env.PUBLIC_URL +
-                                              "/assets/bot-avatar.png" // updated path
-                                    }
-                                    alt="Bot"
-                                    className="profile-pic"
-                                />
-                            )}
-                            <div
-                                className="chat-bubble"
-                                dangerouslySetInnerHTML={{
-                                    __html: marked.parse(msg.content),
-                                }}
-                            ></div>
+
+                <div className="chat-container">
+                    <div className="chat-header">
+                        <div className="chat-header-info">
+                            <img
+                                id="selected-chef-avatar"
+                                src={
+                                    selectedChef
+                                        ? selectedChef.img
+                                        : process.env.PUBLIC_URL +
+                                          "/assets/bot-avatar.png" // updated path
+                                }
+                                alt="Selected Chef"
+                            />
+                            <div className="chat-header-text">
+                                <h3 id="selected-chef-name">
+                                    {selectedChef
+                                        ? selectedChef.name
+                                        : "Choose a chef..."}
+                                </h3>
+                                <span
+                                    id="chat-header-status"
+                                    className={selectedChef ? "online" : ""}
+                                >
+                                    {selectedChef ? "Online" : "Offline"}
+                                </span>
+                            </div>
                         </div>
-                    ))}
-                    <div ref={messagesEndRef} /> {/* 스크롤 대상 요소 */}
-                </div>
-                <div className="chat-input-area">
-                    <input
-                        type="text"
-                        id="chat-input"
-                        placeholder="Enter your message..."
-                        value={inputMessage}
-                        onChange={(e) => setInputMessage(e.target.value)}
-                        onKeyDown={handleKeyDown}
-                    />
-                    <button id="send-button" onClick={handleSendMessage}>
-                        Send
-                    </button>
+                    </div>
+                    <div id="chat-messages">
+                        {conversation.map((msg, index) => (
+                            <div key={index} className={`message ${msg.role}`}>
+                                {msg.role === "assistant" && (
+                                    // 봇 메시지일 경우 프로필 이미지 표시
+                                    <img
+                                        src={
+                                            selectedChef
+                                                ? selectedChef.img
+                                                : process.env.PUBLIC_URL +
+                                                  "/assets/bot-avatar.png" // updated path
+                                        }
+                                        alt="Bot"
+                                        className="profile-pic"
+                                    />
+                                )}
+                                <div
+                                    className="chat-bubble"
+                                    dangerouslySetInnerHTML={{
+                                        __html: marked.parse(msg.content),
+                                    }}
+                                ></div>
+                            </div>
+                        ))}
+                        <div ref={messagesEndRef} /> {/* 스크롤 대상 요소 */}
+                    </div>
+                    <div className="chat-input-area">
+                        <input
+                            type="text"
+                            id="chat-input"
+                            placeholder="Enter your message..."
+                            value={inputMessage}
+                            onChange={(e) => setInputMessage(e.target.value)}
+                            onKeyDown={handleKeyDown}
+                        />
+                        <button id="send-button" onClick={handleSendMessage}>
+                            Send
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
