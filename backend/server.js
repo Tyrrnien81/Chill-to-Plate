@@ -131,6 +131,6 @@ app.post("/chat", async (req, res) => {
 });
 
 // Port configuration
-app.listen(3000, "0.0.0.0", () => {
-    console.log("server is running on port 3000");
+app.listen(3001, "0.0.0.0", () => {
+    console.log("server is running on port 3001");
 });
